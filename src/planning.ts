@@ -117,7 +117,7 @@ export const AxidrawFast: ToolingProfile = {
     maximumVelocity: 200 * Device.Axidraw.stepsPerMm,
     corneringFactor: 0
   },
-  penUpPos: Device.Axidraw.penPctToPos(50),
+  penUpPos: Device.Axidraw.penPctToPos(80),
   penDownPos: Device.Axidraw.penPctToPos(60),
   penDropDuration: 0.12,
   penLiftDuration: 0.12,
@@ -569,7 +569,7 @@ export function plan(
   // then pick the pen up.
   paths.forEach((p, i) => {
     const m = constantAccelerationPlan(p, profile.penDownProfile);
-    const penUpPos = i === paths.length - 1 ? Device.Axidraw.penPctToPos(0) : profile.penUpPos;
+    const penUpPos = i === paths.length - 1 ? Device.Axidraw.penPctToPos(100) : profile.penUpPos;
     motions.push(
       constantAccelerationPlan([curPos, m.p1], profile.penUpProfile),
       new PenMotion(profile.penUpPos, profile.penDownPos, profile.penDropDuration),
