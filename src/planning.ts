@@ -580,6 +580,6 @@ export function plan(
   });
   // finally, move back to (0, 0).
   motions.push(constantAccelerationPlan([curPos, {x: 0, y: 0}], profile.penUpProfile));
-  motions.push(new PenMotion(Device.Axidraw.penPctToPos(0), profile.penUpPos, profile.penDropDuration));
+  motions.push(new PenMotion(Device.Axidraw.penPctToPos(100), profile.penUpPos, profile.penDropDuration));
   return new Plan(motions);
 }
